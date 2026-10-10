@@ -1,124 +1,54 @@
-# Painel de Análise de Dados - README 
+# Data Analysis Dashboard
 
-# Descrição:
-# Este projeto implementa um Painel de Análise de Dados utilizando Flask no back-end
-# e HTML/CSS no front-end. Ele processa e exibe gráficos dinâmicos gerados a partir de arquivos CSV,
-# fornecendo uma interface web simples e intuitiva para análise de dados.
+A small **Flask** web application that reads data from a CSV file, processes it with **Pandas** and renders a chart with **Matplotlib** on a simple web dashboard.
 
-# Requisitos:
-# - Python 3.x
-# - Flask
-# - Matplotlib
-# - Pandas
+## Features
 
-# Instruções de Instalação:
+- Loads and processes data from `data/dados.csv`
+- Generates a bar chart of values by category every time the page loads
+- Serves the chart through a clean HTML/CSS interface
 
-echo "Navegando para o diretório do projeto..."
-cd painel_analise_dados
+## Tech stack
 
-echo "Criando ambiente virtual (opcional)..."
+- Python 3, Flask
+- Pandas, Matplotlib
+- HTML5, CSS3
+
+## Getting started
+
+```bash
+git clone https://github.com/Lukegbb/data-analysis-dashboard-flask.git
+cd data-analysis-dashboard-flask
+
 python3 -m venv venv
+source venv/bin/activate      # Windows: venv\Scripts\activate
 
-echo "Ativando o ambiente virtual..."
-source venv/bin/activate  # Para Windows: venv\Scripts\activate
-
-echo "Instalando dependências..."
 pip install -r requirements.txt
-
-# Instruções de Execução:
-
-echo "Iniciando o servidor Flask..."
 python app.py
+```
 
-echo "Abra o navegador e acesse o painel em http://127.0.0.1:5000"
+Then open http://127.0.0.1:5000 in your browser.
 
-# Estrutura do Projeto:
-# ├── app.py              # Arquivo principal da aplicação Flask
-# ├── templates/          # Arquivos HTML
-# │   └── index.html      # Template HTML principal
-# ├── static/             # Arquivos de estilo e imagens
-# │   ├── style.css       # Arquivo CSS para estilização
-# │   └── images/         # Diretório onde os gráficos gerados serão salvos
-# ├── data/               # Arquivos de dados CSV
-# │   └── dados.csv       # Exemplo de arquivo CSV contendo os dados
-# ├── requirements.txt    # Lista de dependências do projeto
+## Project structure
 
-# Personalização:
-# - Substitua o arquivo 'data/dados.csv' para carregar novos dados no painel.
-# - Para alterar a aparência da interface, edite o arquivo 'static/style.css'.
-# - Modifique a lógica de gráficos em 'app.py' para alterar a exibição dos dados.
+```
+├── app.py               # Flask application (data loading + chart generation)
+├── templates/
+│   └── index.html       # Main page
+├── static/
+│   ├── style.css        # Styles
+│   └── images/          # Generated charts
+├── data/
+│   └── dados.csv        # Sample dataset (columns: categoria, valor)
+└── requirements.txt
+```
 
-# Tratamento de Erros:
-# - Verifique se o arquivo CSV segue a estrutura correta.
-# - Certifique-se de que todas as bibliotecas estão instaladas corretamente executando 'pip install -r requirements.txt'.
+## Using your own data
 
-# Contribuições:
-# Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+Replace `data/dados.csv` with any CSV that has a `categoria` (category) column and a `valor` (value) column and reload the page.
 
-# Licença:
-# Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
+## Next steps
 
-echo "Painel de Análise de Dados pronto para uso!"
-
-# -----------------------------------------------
-# Data Analysis Dashboard - README 
-
-# Description:
-# This project implements a Data Analysis Dashboard using Flask on the back-end
-# and HTML/CSS on the front-end. It processes and displays dynamic charts generated
-# from CSV files, providing a simple and intuitive web interface for data analysis.
-
-# Requirements:
-# - Python 3.x
-# - Flask
-# - Matplotlib
-# - Pandas
-
-# Installation Instructions:
-
-echo "Navigating to the project directory..."
-cd data-analysis-dashboard
-
-echo "Creating virtual environment (optional)..."
-python3 -m venv venv
-
-echo "Activating the virtual environment..."
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-echo "Installing dependencies..."
-pip install -r requirements.txt
-
-# Running Instructions:
-
-echo "Starting the Flask server..."
-python app.py
-
-echo "Open the browser and access the dashboard at http://127.0.0.1:5000"
-
-# Project Structure:
-# ├── app.py              # Main Flask application file
-# ├── templates/          # HTML files
-# │   └── index.html      # Main HTML template
-# ├── static/             # Style and image files
-# │   ├── style.css       # CSS file for styling
-# │   └── images/         # Directory where generated charts are saved
-# ├── data/               # CSV data files
-# │   └── data.csv        # Example CSV file with data
-# ├── requirements.txt    # List of project dependencies
-
-# Customization:
-# - Replace the 'data/data.csv' file to load new data into the dashboard.
-# - To change the interface appearance, edit the 'static/style.css' file.
-# - Modify the chart logic in 'app.py' to change how data is displayed.
-
-# Error Handling:
-# - Ensure the CSV file follows the correct structure.
-# - Make sure all libraries are installed correctly by running 'pip install -r requirements.txt'.
-
-# Contributions:
-# Contributions are welcome! Feel free to open issues or submit pull requests.
-
-# License:
-# This project is licensed under the MIT License. See the LICENSE file for more information.
-
-echo "Data Analysis Dashboard ready to use!"
+- Upload CSV files through the web interface
+- Interactive charts (Chart.js / Plotly)
+- Filters and summary statistics
